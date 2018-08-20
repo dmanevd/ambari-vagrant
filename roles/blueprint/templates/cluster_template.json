@@ -1,0 +1,30 @@
+{
+  "blueprint" : "ambari1_bp",
+  "default_password" : "admin",
+  "host_groups" :[
+    {
+      "name" : "host_group_1", 
+      "hosts" : [         
+        {
+          "fqdn" : "host1.localdomain"
+        }
+      ]
+    },
+    {
+      "name" : "host_group_2", 
+      "hosts" : [
+        {
+          "fqdn" : "host2.localdomain"
+        }
+      ]
+    },
+	{
+	  "name" : "host_group_3",
+	  "hosts" : [
+        {
+          "fqdn" : "host3.localdomain"
+        }
+	  ]
+	}
+  ]
+}

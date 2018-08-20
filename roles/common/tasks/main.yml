@@ -1,0 +1,25 @@
+- name: java setup
+  yum: 
+    name: java-devel
+    state: latest
+    
+- name: ntp setup
+  yum: 
+    name: ntp
+    
+- name: ntp config
+  service: name=ntpd state=started enabled=yes
+  
+- name: disabling firewall and selinux
+  service: name=firewalld state=stopped enabled=no
+  
+- name: disabling selinux
+  selinux: state=disabled
+
+- name: install ambari repo
+  yum_repository:
+    name: ambari
+    description: Ambari repo
+    baseurl: http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.5.1.0
+    gpgkey: http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.5.1.0/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins
+    gpgcheck: yes 

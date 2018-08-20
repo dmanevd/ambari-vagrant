@@ -1,0 +1,8 @@
+- name: install ambari-server
+  yum: name=ambari-server state=latest
+  
+- name: setup ambari-server
+  command: /usr/sbin/ambari-server setup -s
+  
+- name: start ambari-server
+  service: name=ambari-server state=restarted enabled=yes

@@ -1,0 +1,14 @@
+- name: install ambari-agent
+  yum: name=ambari-agent state=latest
+  
+- name: configure ambari-agent
+  lineinfile: 
+    path: /etc/ambari-agent/conf/ambari-agent.ini
+    regexp: '^hostname='
+    line: 'hostname=host1.localdomain'
+    
+- name: start ambari-agent
+  service: name=ambari-agent state=restarted enabled=yes
+  
+- name: wait for agent to register
+  command: sleep 10

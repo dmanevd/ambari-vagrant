@@ -1,0 +1,29 @@
+- name: EPEL
+  hosts: all
+  sudo: yes
+  roles:
+    - repo-epel
+
+- name: Common
+  hosts: all
+  sudo: yes
+  roles:
+    - common
+
+- name: Ambari server
+  hosts: server
+  sudo: yes
+  roles:
+    - ambari-server
+    
+- name: Ambari agent
+  hosts: all
+  sudo: yes
+  roles:
+    - ambari-agent
+    
+- name: Deploying blueprint
+  hosts: server
+  sudo: yes
+  roles:
+    - blueprint

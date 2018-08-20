@@ -1,0 +1,14 @@
+[server]
+host1.localdomain
+
+[agents]
+host1.localdomain
+host2.localdomain
+host3.localdomain
+
+[all:children]
+server
+agents
+
+[all:vars]
+ansible_ssh_user=vagrant

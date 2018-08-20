@@ -1,0 +1,32 @@
+- name: wait for agents to register
+  command: sleep 10
+
+- name: copy blueprint to ambari-server
+  uri:
+    url: http://192.168.64.101:8080/api/v1/blueprints/ambari1_bp
+    method: POST
+    user: admin
+    password: admin
+    body: "{{ lookup('file', '/vagrant/roles/blueprint/templates/ambari1_bp.json') }}"
+    force_basic_auth: yes
+    headers:
+      Content-Type: "application/json"
+      X-Requested-By: "ambari"
+
+- name: copy cluster creation template
+  uri:
+    url: http://192.168.64.101:8080/api/v1/clusters/ambari1
+    method: POST
+    user: admin
+    password: admin
+    body: "{{ lookup('file', '/vagrant/roles/blueprint/templates/cluster_template.json') }}"
+    force_basic_auth: yes
+    headers:
+      Content-Type: "application/json"
+      X-Requested-By: "ambari"
+      
+# - name: copy blueprint to ambari-server
+  # command: curl -H "X-Requested-By: ambari" -X POST -u admin:admin -d @/vagrant/roles/blueprint/templates/ambari1_bp.json http://192.168.64.101:8080/api/v1/blueprints/ambari1_bp 
+  
+# - name: copy cluster creation template
+  # command: curl -H "X-Requested-By: ambari" -X POST -u admin:admin -d @/vagrant/roles/blueprint/templates/cluster_template.json http://192.168.64.101:8080/api/v1/clusters/ambari2
