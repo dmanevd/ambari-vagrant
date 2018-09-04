@@ -19,17 +19,9 @@ Vagrant.configure("2") do |config|
   end
   config.vm.synced_folder ".", "/vagrant", type: "rsync"
   
-  config.vm.define "ambari_agent1" do |agent1|
-	agent1.vm.hostname = "host2.localdomain"
-	agent1.vm.network "private_network", ip: "169.254.145.241"
-	agent1.vm.provision "ansible_local" do |ansible|
-	  ansible.inventory_path = "inventory/vagrant-virtualbox"
-	  ansible.verbose = "v"
-	  ansible.playbook = 'main.yml'
-	  ansible.sudo = true
-	  ansible.extra_vars = { ansible_ssh_user: 'vagrant' }
-	  ansible.limit = 'all'
-	end
+  config.vm.define "ambari_server" do |server|
+	server.vm.hostname = "host1.localdomain"
+	server.vm.network "private_network", ip: "169.254.145.240"
   end
   
   config.vm.provision "shell", path: "ssh.sh"
