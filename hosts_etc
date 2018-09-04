@@ -1,5 +1,4 @@
 127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
 ::1 		localhost localhost.localdomain localhost6 localhost6.localdomain6
-192.168.64.101	host1.localdomain	host1
-192.168.64.102	host2.localdomain	host2
-192.168.64.103	host3.localdomain	host3
+169.254.145.240 host1.localdomain	host1
+169.254.145.241	host2.localdomain	host2

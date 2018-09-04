@@ -11,4 +11,4 @@
   service: name=ambari-agent state=restarted enabled=yes
   
 - name: wait for agent to register
-  command: sleep 10
+  command: sleep 30

@@ -4,7 +4,6 @@ host1.localdomain
 [agents]
 host1.localdomain
 host2.localdomain
-host3.localdomain
 
 [all:children]
 server

@@ -22,8 +22,8 @@
   roles:
     - ambari-agent
     
-- name: Deploying blueprint
-  hosts: server
-  sudo: yes
-  roles:
-    - blueprint
+#- name: Deploying blueprint
+#  hosts: server
+#  sudo: yes
+#  roles:
+#    - blueprint
